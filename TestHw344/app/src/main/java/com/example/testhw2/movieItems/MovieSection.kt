@@ -18,12 +18,10 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import graphik
 
-// Секции
 @Composable
 fun MovieSection(title: String, movies: List<Movie>) {
     Column {
         Row(verticalAlignment = Alignment.CenterVertically) {
-            // Заголовок секции
             Text(title, style = MaterialTheme.typography.headlineMedium, fontFamily = graphik, fontSize = 14.sp, fontWeight = FontWeight(600))
             Spacer(Modifier.fillMaxSize(0.8f))
             Text(
@@ -35,9 +33,7 @@ fun MovieSection(title: String, movies: List<Movie>) {
                 textAlign = TextAlign.Center,
                 color = Color(0xFF3D3BFF),
                 modifier = Modifier
-                    .clickable {
-                        // кнопка все
-                    }
+                    .clickable {}
             )
         }
 

@@ -23,7 +23,6 @@ import androidx.compose.ui.unit.sp
 import com.example.testhw2.movieItems.imageLoader.LoadImage
 import graphik
 
-// Изображение фильма с его жанром и рейтингом
 @Composable
 fun MovieItem(movie: Movie) {
     Box(
@@ -31,17 +30,16 @@ fun MovieItem(movie: Movie) {
             .padding(end = 10.dp)
             .width(111.dp)
             .height(200.dp)
-            .clickable { /* клик иконки фильма */ }
+            .clickable { }
     ) {
 
         LoadImage(
-            url = movie.imageUrl, // URL из объекта Movie
+            url = movie.imageUrl,
             contentDescription = movie.title,
         )
 
         GradientBox(showGradient = movie.showGradient)
 
-        // рейтинг
         Box(
             modifier = Modifier
                 .offset(x = 88.dp, y = 6.dp)
@@ -69,7 +67,6 @@ fun MovieItem(movie: Movie) {
         }
 
         Column(modifier = Modifier.padding(top = 162.dp)) {
-            // Заголовок фильма
             Text(
                 movie.title,
                 fontFamily = graphik,
@@ -79,7 +76,6 @@ fun MovieItem(movie: Movie) {
                 color = Color.Black,
                 maxLines = 1
             )
-            // Жанр фильма
             Text(
                 movie.genre,
                 fontFamily = graphik,

@@ -11,7 +11,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.example.testhw2.entities.ShowAllButton
 
-// отображение секции с заголовком и списком фильмов
 @Composable
 fun MovieRow(movies: List<Movie>) {
     LazyRow(
@@ -20,7 +19,6 @@ fun MovieRow(movies: List<Movie>) {
         items(movies) { movie ->
             MovieItem(movie = movie)
         }
-        // кнопка "Показать все"
         item {
             Box(
                 modifier = Modifier
@@ -33,3 +31,5 @@ fun MovieRow(movies: List<Movie>) {
         }
     }
 }
+
+
