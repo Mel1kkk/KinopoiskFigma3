@@ -11,7 +11,7 @@ sealed interface ScreenState {
     data object Initial : ScreenState
     data object Loading : ScreenState
     data class Success(val data: List<Movie>) : ScreenState
-    data class Error(val message: String) : ScreenState
+    data object Error : ScreenState
 }
 
 class MovieViewModel : ViewModel() {
@@ -25,7 +25,7 @@ class MovieViewModel : ViewModel() {
             val movies = fetchKino()
 
             if (movies.isNullOrEmpty()) {
-                screenState.value = ScreenState.Error("Не удалось загрузить данные")
+                screenState.value = ScreenState.Error
             } else {
                 screenState.value = ScreenState.Success(movies)
             }
