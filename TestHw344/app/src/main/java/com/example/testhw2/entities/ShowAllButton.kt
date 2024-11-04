@@ -19,9 +19,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 
 @Composable
-fun ShowAllButton() {
+fun ShowAllButton(navController: NavController) {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = Modifier.padding(8.dp)
@@ -33,7 +34,7 @@ fun ShowAllButton() {
             modifier = Modifier
                 .size(32.dp)
                 .background(Color.White, shape = RoundedCornerShape(16.dp))
-                .clickable { /* кнопка показать все */ },
+                .clickable { navController.navigate("verticalGrid") },
             contentAlignment = Alignment.Center
         ) {
             // стрелка

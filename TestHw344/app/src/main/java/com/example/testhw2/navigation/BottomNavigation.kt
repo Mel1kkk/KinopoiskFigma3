@@ -13,10 +13,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.ui.draw.clip
+import androidx.navigation.NavController
 import com.example.testhw2.R
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import com.example.testhw2.movieItems.VerticalGridScreen
 import com.example.testhw2.pages.HomeScreen
 import com.example.testhw2.pages.ProfileScreen
 import com.example.testhw2.pages.SearchScreen
@@ -42,9 +44,10 @@ fun BottomNavigationPage() {
                 navController = navController,
                 startDestination = "home" // Default screen
             ) {
-                composable("home") { HomeScreen() }      // Home screen route
+                composable("home") { HomeScreen(navController) }      // Home screen route
                 composable("search") { SearchScreen() }  // Search screen route (add your screen later)
                 composable("profile") { ProfileScreen() } // Profile screen route (add your screen later)
+                composable("verticalGrid") { VerticalGridScreen(navController) }
             }
         }
 

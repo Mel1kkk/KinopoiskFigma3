@@ -23,7 +23,7 @@ suspend fun fetchKino(): List<Movie>? {
             val url = URL("https://kinopoiskapiunofficial.tech/api/v2.2/films/premieres?year=$year&month=$month")
             val connection = url.openConnection() as HttpURLConnection
             connection.requestMethod = "GET"
-            connection.setRequestProperty("X-API-KEY", "оз апиларынды жазындар")
+            connection.setRequestProperty("X-API-KEY", "oz apilaryndy zhazyndar")
             connection.setRequestProperty("Content-Type", "application/json")
 
             if (connection.responseCode != 200) throw Exception("Ошибка загрузки данных")

@@ -15,6 +15,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import coil.compose.rememberAsyncImagePainter
 import com.example.testhw2.MovieViewModel
 import com.example.testhw2.ScreenState
@@ -23,7 +24,7 @@ import com.example.testhw2.movieItems.MovieSection
 import kotlinx.coroutines.delay
 
 @Composable
-fun HomeScreen(viewModel: MovieViewModel = viewModel()) {
+fun HomeScreen(navController: NavController, viewModel: MovieViewModel = viewModel()) {
     val screenState = viewModel.screenState.value
 
     LaunchedEffect(Unit) {
@@ -48,32 +49,32 @@ fun HomeScreen(viewModel: MovieViewModel = viewModel()) {
                 item {SkillCinemaText()}
 
                 item {
-                    MovieSection(title = "Премьеры", movies = movies.take(7))
+                    MovieSection(title = "Премьеры", movies = movies.take(7),navController)
                     Spacer(modifier = Modifier.height(16.dp))
                 }
 
                 item {
-                    MovieSection(title = "Популярное", movies = movies.take(7))
+                    MovieSection(title = "Популярное", movies = movies.take(7),navController)
                     Spacer(modifier = Modifier.height(16.dp))
                 }
 
                 item {
-                    MovieSection(title = "Боевики США", movies = movies.take(7))
+                    MovieSection(title = "Боевики США", movies = movies.take(7),navController)
                     Spacer(modifier = Modifier.height(16.dp))
                 }
 
                 item {
-                    MovieSection(title = "Топ-250", movies = movies.take(7))
+                    MovieSection(title = "Топ-250", movies = movies.take(7),navController)
                     Spacer(modifier = Modifier.height(16.dp))
                 }
 
                 item {
-                    MovieSection(title = "Драмы Франции", movies = movies.take(7))
+                    MovieSection(title = "Драмы Франции", movies = movies.take(7),navController)
                     Spacer(modifier = Modifier.height(16.dp))
                 }
 
                 item {
-                    MovieSection(title = "Сериалы", movies = movies.take(7))
+                    MovieSection(title = "Сериалы", movies = movies.take(7),navController)
                     Spacer(modifier = Modifier.height(16.dp))
                 }
             }

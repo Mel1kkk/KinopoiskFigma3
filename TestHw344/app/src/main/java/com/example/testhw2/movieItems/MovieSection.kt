@@ -16,10 +16,11 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import graphik
 
 @Composable
-fun MovieSection(title: String, movies: List<Movie>) {
+fun MovieSection(title: String, movies: List<Movie>,navController: NavController) {
     Column {
         Row(verticalAlignment = Alignment.CenterVertically) {
             Text(title, style = MaterialTheme.typography.headlineMedium, fontFamily = graphik, fontSize = 14.sp, fontWeight = FontWeight(600))
@@ -33,13 +34,13 @@ fun MovieSection(title: String, movies: List<Movie>) {
                 textAlign = TextAlign.Center,
                 color = Color(0xFF3D3BFF),
                 modifier = Modifier
-                    .clickable {}
+                    .clickable {navController.navigate("verticalGrid")}
             )
         }
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        MovieRow(movies = movies)
+        MovieRow(movies = movies,navController)
     }
 }
 

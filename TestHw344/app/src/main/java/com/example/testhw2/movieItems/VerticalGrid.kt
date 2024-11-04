@@ -29,10 +29,11 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.example.testhw2.R
 
 @Composable
-fun VerticalGridScreen() {
+fun VerticalGridScreen(navController: NavController) {
     val premieres = remember { mutableStateOf(emptyList<Movie>()) }
     val popularity = remember { mutableStateOf(emptyList<Movie>()) }
     val usa = remember { mutableStateOf(emptyList<Movie>()) }
@@ -65,7 +66,7 @@ fun VerticalGridScreen() {
                 modifier = Modifier
                     .size(80.dp)
                     .offset(x = 26.dp, y = 16.dp)
-                    .clickable {}
+                    .clickable {navController.navigate("home")}
             )
             Text(
                 text = "Сериалы",
