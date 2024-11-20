@@ -40,11 +40,20 @@ fun BottomNavigationPage() {
         ) {
             NavHost(
                 navController = navController,
-                startDestination = "home" // Default screen
+                startDestination = "homePage" // Default screen
             ) {
                 composable("home") { HomeScreen() }      // Home screen route
                 composable("search") { SearchScreen() }  // Search screen route (add your screen later)
                 composable("profile") { ProfileScreen() } // Profile screen route (add your screen later)
+                composable("homePage") { HomePage(navHostController = navController) }
+                composable("filmDetail") { FilmDetail() }
+                composable(
+                    route = "gallery/{film_id}",
+                    arguments = listOf(navArgument("film_id"){type = NavType.IntType})
+                ) {  backStackEntry ->
+                    val film_id = backStackEntry.arguments?.getInt("film_id") ?: 0
+                    GalleryPage(navHostController = navController,film_id = film_id)
+                }
             }
         }
 
@@ -61,7 +70,7 @@ fun BottomNavigationPage() {
             NavigationIcon(
                 imageId = R.drawable.home,
                 description = "Home",
-                onClick = { navController.navigate("home") } // Navigate to Home
+                onClick = { navController.navigate("homePage") } // Navigate to Home
             )
             Spacer(modifier = Modifier.width(60.dp))
             NavigationIcon(

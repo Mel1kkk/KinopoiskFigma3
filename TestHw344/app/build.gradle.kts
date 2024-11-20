@@ -51,6 +51,17 @@ android {
 
 dependencies {
 
+
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation("com.squareup.okhttp3:okhttp:4.11.0")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.1")
+    implementation("io.coil-kt:coil-compose:1.3.2")
+
+    implementation("androidx.navigation:navigation-compose:2.7.6")
+    implementation("androidx.compose.foundation:foundation:1.6.8")
+    implementation("io.coil-kt.coil3:coil-compose:3.0.0-rc01")
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
